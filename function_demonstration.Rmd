@@ -1,0 +1,25 @@
+---
+title: "Function demonstration"
+output: html_document
+date: "2023-10-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("01-functions.R")
+library(tidyverse)
+```
+
+## Function description
+
+This file briefly demonstrates how the manipulate_data function works. The function computes cars' weight to gross horsepower ratio given a dataset with column called wt (weight in lbs) and hp (gross horsepower). The argument change_to_kg is a bool describing whether the weight units should be changed from lbs to kg (the default is not to change the units). Below you can compare what the function does depending on whether you choose to change the units or not. The difference lies in the wt and weight_per_hp columns. 
+
+```{r}
+my_data <- mtcars
+data_manipulated_units_same <- manipulate_data(my_data)
+data_manipulated_units_changed <- manipulate_data(my_data, TRUE)
+
+head(data_manipulated_units_same)
+head(data_manipulated_units_changed)
+```
+
